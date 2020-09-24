@@ -1,5 +1,6 @@
 from os.path import exists
 from sqlite3 import connect
+from typing import Any, Dict, List
 
 
 def setup_db():
@@ -34,10 +35,16 @@ def setup_db():
     return db
 
 
-def fetchall(sql, *params):
+def fetchall(sql: str, *params) -> List[Dict[str, Any]]:
     with DB.cursor() as cursor:
         cursor.execute(sql, params)
         return cursor.fetchall()
+
+
+def fetch(sql: str, *params) -> Dict[str, Any]:
+    with DB.cursor() as cursor:
+        cursor.execute(sql, params)
+        return cursor.fetchone()
 
 
 DB = setup_db()
