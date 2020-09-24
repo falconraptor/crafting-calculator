@@ -1,0 +1,32 @@
+{
+  "coke brick": {
+    "amount": 2,
+    "requires": {
+      "lavawood": 4,
+      "seared brick": 4
+    }
+  },
+  "lavawood": {
+    "amount": 4,
+    "requires": {
+      "lava": 1,
+      "wooden plank": 4
+    }
+  },
+  "seared brick": {
+    "requires": {
+      "cobblestone": 1
+    }
+  },
+  "wooden plank": {
+    "amount": 4,
+    "requires": {
+      "wood": 1
+    }
+  },
+  "crafting table": {
+    "requires": {
+      "wooden plank": 4
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "litherite solar panel": {
+    "requires": {
+      "litherite crystal": 3,
+      "photovoltaic cell": 3,
+      "redstone": 2,
+      "interconnect": 1
+    }
+  },
+  "litherite crystal": {
+    "amount": 4,
+    "requires": {
+      "diamond": 1,
+      "flint": 4,
+      "green dye": 2,
+      "lime dye": 2
+    }
+  },
+  "lime dye": {
+    "amount": 2,
+    "requires": {
+      "green dye": 1,
+      "white dye": 1
+    }
+  },
+  "photovoltaic cell": {
+    "requires": {
+      "lapis lazuli": 4,
+      "nether quartz": 1
+    }
+  },
+  "interconnect": {
+    "requires": {
+      "connector": 4,
+      "black concrete": 1
+    }
+  },
+  "connector": {
+    "requires": {
+      "redstone": 5,
+      "iron": 4
+    }
+  },
+  "structure frame tier 1": {
+    "requires": {
+      "litherite crystal": 2,
+      "iron": 1,
+      "lapis lazuli": 1,
+      "interconnect": 1
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "solar panel I": {
+    "requires": {
+      "wooden planks": 5,
+      "redstone": 1,
+      "mirror": 3
+    }
+  },
+  "piston": {
+    "requires": {
+      "cobblestone": 4,
+      "iron": 1,
+      "redstone": 1,
+      "wooden planks": 3
+    }
+  },
+  "mirror": {
+    "amount": 2,
+    "requires": {
+      "glass": 3,
+      "iron": 1
+    }
+  },
+  "basic energy relay crystal": {
+    "amount": 4,
+    "requires": {
+      "diamond": 4,
+      "wyvern energy core": 1
+    }
+  },
+  "wyvern energy core": {
+    "requires": {
+      "draconium": 4,
+      "redstone block": 4,
+      "draconic core": 1
+    }
+  },
+  "draconic core": {
+    "requires": {
+      "draconium": 4,
+      "gold": 4,
+      "diamond": 1
+    }
+  },
+  "redstone block": {
+    "requires": {
+      "redstone": 9
+    }
+  }, 
+  "solar panel II": {
+    "requires": {
+      "piston": 1,
+      "solar panel I": 8
+    }
+  },
+  "solar panel III": {
+    "amount": 2,
+    "requires": {
+      "iron block": 1,
+      "solar panel II": 4,
+      "redstone repeater": 1,
+      "photovoltaic cell I": 3
+    }
+  },
+  "iron block": {
+    "requires": {
+      "iron": 9
+    }
+  },
+  "redstone repeater": {
+    "requires": {
+      "redstone": 1,
+      "stone": 3,
+      "redstone torch": 2
+    }
+  },
+  "redstone torch": {
+    "requires": {
+      "redstone": 1,
+      "stick": 1
+    }
+  },
+  "photovoltaic cell I": {
+    "requires": {
+      "glass": 3,
+      "lapis lazuli": 3,
+      "mirror": 3
+    }
+  },
+  "solar panel V": {
+  	"amount": 2,
+  	"requires": {
+  		"photovoltaic cell III": 3,
+  		"solar panel IV": 4,
+  		"gold block": 1,
+  		"glowstone": 1
+  	}
+  },
+  "glowstone": {
+    "requires": {
+      "glowstone dust": 4
+    }
+  },
+  "gold block": {
+    "requires": {
+      "gold": 9
+    }
+  },
+  "solar panel IV": {
+    "amount": 2,
+    "requires": {
+      "photovoltaic cell II": 2,
+      "solar panel III": 4,
+      "clock": 1,
+      "iron block": 1
+    }
+  },
+  "clock": {
+    "requires": {
+      "gold": 4,
+      "redstone": 1
+    }
+  },
+  "photovoltaic cell III": {
+    "requires": {
+      "glass": 3,
+      "glowstone dust": 3,
+      "obsidian": 2,
+      "photovoltaic cell II": 1
+    }
+  },
+  "photovoltaic cell II": {
+    "requires": {
+      "clay": 3,
+      "lapis lazuli": 3,
+      "mirror": 2,
+      "photovoltaic cell I": 1
+    }
+  }
+}

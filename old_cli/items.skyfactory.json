@@ -1,0 +1,90 @@
+{
+  "64k storage disk": {
+    "requires": {
+      "redstone": 3,
+      "glass": 2,
+      "quartz enriched iron": 3,
+      "64k storage part": 1
+    }
+  },
+  "quartz enriched iron": {
+    "amount": 4,
+    "requires": {
+      "iron": 3,
+      "nether quartz": 1
+    }
+  },
+  "64k storage part": {
+    "requires": {
+      "quartz enriched iron": 1,
+      "redstone": 1,
+      "advanced processor": 4,
+      "16k storage part": 3
+    }
+  },
+  "advanced processor": {
+    "requires": {
+      "redstone": 1,
+      "printed silicon": 1,
+      "printed advanced processor": 1
+    }
+  },
+  "printed advanced processor": {
+    "requires": {
+      "diamond": 1
+    }
+  },
+  "printed silicon": {
+    "requires": {
+      "silicon": 1
+    }
+  },
+  "16k storage part": {
+    "requires": {
+      "redstone": 1,
+      "quartz enriched iron": 1,
+      "improved processor": 4,
+      "4k storage part": 3
+    }
+  },
+  "improved processor": {
+    "requires": {
+      "redstone": 1,
+      "printed improved processor": 1,
+      "printed silicon": 1
+    }
+  },
+  "printed improved processor": {
+    "requires": {
+      "gold": 1
+    }
+  },
+  "4k storage part": {
+    "requires": {
+      "quartz enriched iron": 1,
+      "redstone": 1,
+      "basic processor": 4,
+      "1k storage part": 3
+    }
+  },
+  "basic processor": {
+    "requires": {
+      "redstone": 1,
+      "printed silicon": 1,
+      "printed basic processor": 1
+    }
+  },
+  "printed basic processor": {
+    "requires": {
+      "iron": 1
+    }
+  },
+  "1k storage part": {
+    "requires": {
+      "silicon": 4,
+      "quartz enriched iron": 1,
+      "redstone": 1,
+      "glass": 3
+    }
+  }
+}
