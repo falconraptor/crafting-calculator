@@ -1,0 +1,32 @@
+{
+  "Copper Cable": {
+    "Time": 0.5,
+    "Output": 2,
+    "Inputs": {
+
+    }
+  },
+  "Green Circuits": {
+    "Time": 0.5,
+    "Output": 1,
+    "Inputs": {
+      "Copper Cable": 3
+    }
+  },
+  "Red Circuits": {
+    "Time": 6,
+    "Output": 1,
+    "Inputs": {
+      "Copper Cable": 4,
+      "Green Circuits": 2
+    }
+  },
+  "Blue Circuits": {
+    "Time": 10,
+    "Output": 1,
+    "Inputs": {
+      "Green Circuits": 20,
+      "Red Circuits": 2
+    }
+  }
+}

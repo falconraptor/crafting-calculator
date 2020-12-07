@@ -1,0 +1,14 @@
+{
+  "Assembler Tier 1": {
+    "Speed": 0.5,
+    "Upgrades": 0
+  },
+  "Assembler Tier 2": {
+    "Speed": 0.75,
+    "Upgrades": 1
+  },
+  "Assembler Tier 3": {
+    "Speed": 1,
+    "Upgrades": 2
+  }
+}

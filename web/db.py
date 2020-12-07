@@ -5,7 +5,7 @@ from typing import Any, Dict, List
 
 def setup_db():
     create = not exists('crafting.db')
-    db = connect('crafting.db')
+    db = connect('crafting.db', check_same_thread=False)
     db.row_factory = lambda cursor, row: {col[0]: row[idx] for idx, col in enumerate(cursor.description)}
     if create:
         db.execute('CREATE TABLE Games (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, released DATE NOT NULL, item_unit TEXT NOT NULL DEFAULT "", fluid_unit TEXT NOT NULL DEFAULT "", image BLOB)')
@@ -27,24 +27,13 @@ def setup_db():
         db.execute('CREATE TABLE ModVersionRequirements (version INT NULL, requires INT NOT NULL, FOREIGN KEY (version) REFERENCES ModVersions(id), FOREIGN KEY (requires) REFERENCES ModVersions(id))')
         db.execute('CREATE TABLE ModRecipes (id INTEGER PRIMARY KEY AUTOINCREMENT, mod_mechanic INT, game_mechanic INT, FOREIGN KEY (mod_mechanic) REFERENCES ModMechanic(id), FOREIGN KEY (game_mechanic) REFERENCES GameMechanic(id))')
         db.execute('CREATE TABLE ModRecipeItems (recipe INT NOT NULL, type TEXT NOT NULL, mod_item INT, game_item INT, amount FLOAT NOT NULL DEFAULT 1, FOREIGN KEY (recipe) REFERENCES ModRecipes(id), FOREIGN KEY (mod_item) REFERENCES ModItems(id), FOREIGN KEY (game_item) REFERENCES GameItems(id))')
-        db.execute('CREATE TABLE Modpack (id INTEGER PRIMARY KEY AUTOINCREMENT, game INT NOT NULL, name TEXT NOT NULL, description TEXT NULL NOT, created DATE NOT NULL, image BLOB, FOREIGN KEY (game) REFERENCES Games(id))')
+        db.execute('CREATE TABLE Modpack (id INTEGER PRIMARY KEY AUTOINCREMENT, game INT NOT NULL, name TEXT NOT NULL, description TEXT NOT NULL, created DATE NOT NULL, image BLOB, FOREIGN KEY (game) REFERENCES Games(id))')
         db.execute('CREATE TABLE ModpackVerions (id INTEGER PRIMARY KEY AUTOINCREMENT, modpack INT NOT NULL, version TEXT NOT NULL, game_version INT NOT NULL, release DATE NOT NULL, FOREIGN KEY (modpack) REFERENCES Modpacks(id), FOREIGN KEY (game_version) REFERENCES GameVersions(id))')
         db.execute('CREATE TABLE ModpackMods (modpack_version INT NOT NULL, mod_version INT NOT NULL, FOREIGN KEY (modpack_version) REFERENCES ModpackVersions(id), FOREIGN KEY (mod_version) REFERENCES ModVersions(id))')
         db.execute('CREATE TABLE ModpackRecipes (id PRIMARY KEY AUTOINCREMENT, modpack_version INT NOT NULL, mod_recipe INT, game_recipe INT, FOREIGN KEY (mod_recipe) REFERENCES ModRecipes(id), FOREIGN KEY (game_recipe) REFERENCES GameRecipes(id))')
         db.execute('CREATE TABLE ModpackRecipeItems (recipe INT NOT NULL, type TEXT NOT NULL, mod_item INT, game_item INT, amount FLOAT NOT NULL DEFAULT 1, FOREIGN KEY (recipe) REFERENCES ModpackRecipes(id), FOREIGN KEY (mod_item) REFERENCES ModItems(id), FOREIGN KEY (game_item) REFERENCES GameItems(id))')
+        db.commit()
     return db
-
-
-def fetchall(sql: str, *params) -> List[Dict[str, Any]]:
-    with DB.cursor() as cursor:
-        cursor.execute(sql, params)
-        return cursor.fetchall()
-
-
-def fetch(sql: str, *params) -> Dict[str, Any]:
-    with DB.cursor() as cursor:
-        cursor.execute(sql, params)
-        return cursor.fetchone()
 
 
 DB = setup_db()

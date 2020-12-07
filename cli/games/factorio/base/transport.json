@@ -1,0 +1,13 @@
+{
+  "Items": {
+    "Tier 1 Belt": {
+      "Speed": 15
+    },
+    "Tier 2 Belt": {
+      "Speed": 30
+    },
+    "Tier 3 Belt": {
+      "Speed": 45
+    }
+  }
+}

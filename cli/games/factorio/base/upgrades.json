@@ -1,0 +1,11 @@
+{
+  "Speed Tier 1": {
+    "Speed": 0.25
+  },
+  "Speed Tier 2": {
+    "Speed": 0.5
+  },
+  "Speed Tier 3": {
+    "Speed": 0.75
+  }
+}
