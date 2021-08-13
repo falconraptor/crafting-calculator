@@ -8,9 +8,17 @@
         </div>
         <div class="row">
             <div class="col">
+                <h6>Versions</h6>
                 <ul>
                     <li><a href="/~~data['game']['name']~~/add_version/">Add Version</a></li>
                     ~~''.join(f'''<li><a href="/~~data['game']['name']~~/{_['version']}/">{_['version']} ({_['released']})</a></li>''' for _ in data['versions'])~~
+                </ul>
+            </div>
+            <div class="col">
+                <h6>Mods</h6>
+                <ul>
+                    <li><a href="/~~data['game']['name']~~/add_mod/">Add Mod</a></li>
+                    ~~''.join(f'''<li><a href="/~~data['game']['name']~~/{_['name']}/">{_['name']} ({_['created']})</a></li>''' for _ in data['mods'])~~
                 </ul>
             </div>
         </div>
