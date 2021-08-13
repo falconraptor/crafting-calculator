@@ -1,6 +1,5 @@
 from os.path import exists
 from sqlite3 import connect
-from typing import Any, Dict, List
 
 
 def setup_db():

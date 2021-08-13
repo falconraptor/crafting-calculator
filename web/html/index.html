@@ -3,7 +3,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h4>Index</h4>
+                <ul>
+                    <li><a href="/add_game/">Add Game</a></li>
+                    ~~''.join(f'''<li><a href="/{_['name']}/"><img src="/static/games/{_['id']}" style="max-height: 100px; max-width: 100px">{_['name']} ({_['released']})</a></li>''' for _ in data['games'])~~
+                </ul>
             </div>
         </div>
     </div>

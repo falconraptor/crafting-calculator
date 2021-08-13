@@ -1,0 +1,18 @@
+~~extends html/base.html~~
+<~~content~~>
+    <div class="container">
+        <div class="row">
+            <img src="/static/games/~~data['game']['id']~~" style="max-width: 400px; max-height: 400px">
+            <h1>~~data['game']['name']~~</h1><br>
+            <h6>~~data['game']['released']~~</h6>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li><a href="/~~data['game']['name']~~/add_version/">Add Version</a></li>
+                    ~~''.join(f'''<li><a href="/~~data['game']['name']~~/{_['version']}/">{_['version']} ({_['released']})</a></li>''' for _ in data['versions'])~~
+                </ul>
+            </div>
+        </div>
+    </div>
+</~~content~~>

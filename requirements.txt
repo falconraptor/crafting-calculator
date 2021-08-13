@@ -1,1 +1,1 @@
-LiteSpeed==1.1.1
+LiteSpeed==1.1.7

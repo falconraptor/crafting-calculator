@@ -1,0 +1,15 @@
+~~extends html/base.html~~
+<~~content~~>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Add Version for "~~data['game']['name']~~"</h1>
+                <form method="post" enctype="multipart/form-data">
+                    <label>Name: <input type="text" maxlength="256" required name="version" class="form-control"></label>
+                    <label>Released: <input type="date" required name="released" class="form-control"></label>
+                    <input type="submit" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+</~~content~~>
