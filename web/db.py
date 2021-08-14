@@ -29,7 +29,7 @@ def setup_db():
         db.execute('CREATE TABLE Modpack (id INTEGER PRIMARY KEY AUTOINCREMENT, game INT NOT NULL, name TEXT NOT NULL, description TEXT NOT NULL, created DATE NOT NULL, image BLOB, FOREIGN KEY (game) REFERENCES Games(id))')
         db.execute('CREATE TABLE ModpackVerions (id INTEGER PRIMARY KEY AUTOINCREMENT, modpack INT NOT NULL, version TEXT NOT NULL, game_version INT NOT NULL, release DATE NOT NULL, FOREIGN KEY (modpack) REFERENCES Modpacks(id), FOREIGN KEY (game_version) REFERENCES GameVersions(id))')
         db.execute('CREATE TABLE ModpackMods (modpack_version INT NOT NULL, mod_version INT NOT NULL, FOREIGN KEY (modpack_version) REFERENCES ModpackVersions(id), FOREIGN KEY (mod_version) REFERENCES ModVersions(id))')
-        db.execute('CREATE TABLE ModpackRecipes (id PRIMARY KEY AUTOINCREMENT, modpack_version INT NOT NULL, mod_recipe INT, game_recipe INT, FOREIGN KEY (mod_recipe) REFERENCES ModRecipes(id), FOREIGN KEY (game_recipe) REFERENCES GameRecipes(id))')
+        db.execute('CREATE TABLE ModpackRecipes (id INTEGER PRIMARY KEY AUTOINCREMENT, modpack_version INT NOT NULL, mod_recipe INT, game_recipe INT, FOREIGN KEY (mod_recipe) REFERENCES ModRecipes(id), FOREIGN KEY (game_recipe) REFERENCES GameRecipes(id))')
         db.execute('CREATE TABLE ModpackRecipeItems (recipe INT NOT NULL, type TEXT NOT NULL, mod_item INT, game_item INT, amount FLOAT NOT NULL DEFAULT 1, FOREIGN KEY (recipe) REFERENCES ModpackRecipes(id), FOREIGN KEY (mod_item) REFERENCES ModItems(id), FOREIGN KEY (game_item) REFERENCES GameItems(id))')
         db.commit()
     return db
