@@ -14,7 +14,9 @@ def index(request: Request):
 @route(methods=['GET', 'POST'])
 def add_game(request: Request):
     if request.POST:
-        DB.execute('INSERT INTO Games (name, released, image) VALUES (?, ?, ?)', (request.POST['name'], request.POST['released'], request.POST['icon']))
+        _, stream = list(request.FILES['icon'].items())[0]
+        icon_bytes = stream.read()
+        DB.execute('INSERT INTO Games (name, released, image) VALUES (?, ?, ?)', (request.POST['name'], request.POST['released'], icon_bytes))
         DB.commit()
         return '', 307, {'Location': f'/{request.POST["name"]}/'}
     return render(request, 'html/add_game.html')
