@@ -7,7 +7,7 @@
                 <form method="post" enctype="multipart/form-data">
                     <label>Name: <input type="text" maxlength="256" required name="name" class="form-control"></label>
                     <label>Released: <input type="date" required name="released" class="form-control"></label>
-                    <label>Icon: <input type="file" required name="icon" class="form-control-file" accept="image/png,image/jpeg,image/bmp,image/tiff" onchange="check_file"></label>
+                    <label>Icon: <input type="file" required name="icon" id="icon" class="form-control-file" accept="image/png,image/jpeg,image/bmp" onchange="check_file()"></label>
                     <input type="submit" class="btn btn-success">
                 </form>
             </div>
@@ -16,10 +16,11 @@
 </~~content~~>
 <~~scripts~~>
     <script>
-        function check_file(event) {
-            const file = event.target.files[0]
+        function check_file() {
+            const file = $('#icon')[0].files[0]
             if (file.size > 4 << 20 || !(file.type == 'image/png' || file.type == 'image/jpeg')) {
-                throw ''
+                alert('File is too big!')
+                $('#icon').val('')
             }
         }
     </script>

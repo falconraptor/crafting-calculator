@@ -17,7 +17,7 @@ def setup_db():
         db.execute('CREATE TABLE GameRecipes (id INTEGER PRIMARY KEY AUTOINCREMENT, mechanic INT NOT NULL, FOREIGN KEY (mechanic) REFERENCES GameMechanics(id))')
         db.execute('CREATE TABLE GameRecipeItems (recipe INT NOT NULL, type TEXT NOT NULL, item INT NOT NULL, amount FLOAT NOT NULL DEFAULT 1, FOREIGN KEY (recipe) REFERENCES GameRecipes(id), FOREIGN KEY (item) REFERENCES GameItems(id))')
         db.execute('CREATE TABLE Mods (id INTEGER PRIMARY KEY AUTOINCREMENT, game INT NOT NULL, name TEXT NOT NULL, description TEXT NOT NULL, created DATE NOT NULL, image BLOB, FOREIGN KEY (game) REFERENCES Game(id))')
-        db.execute('CREATE TABLE ModVersions (id INTEGER PRIMARY KEY AUTOINCREMENT, mod INT NOT NULL, version TEXT NOT NULL, game_version INT NOT NULL, release DATE NOT NULL, FOREIGN KEY (game_version) REFERENCES GameVersions(id))')
+        db.execute('CREATE TABLE ModVersions (id INTEGER PRIMARY KEY AUTOINCREMENT, mod INT NOT NULL, version TEXT NOT NULL, game_version INT NOT NULL, released DATE NOT NULL, FOREIGN KEY (mod) REFERENCES Mods(id), FOREIGN KEY (game_version) REFERENCES GameVersions(id))')
         db.execute('CREATE TABLE ModItems (id INTEGER PRIMARY KEY AUTOINCREMENT, mod INT NOT NULL, name TEXT NOT NULL, image BLOB, FOREIGN KEY (mod) REFERENCES Mods(id))')
         db.execute('CREATE TABLE ModMechanics (id INTEGER PRIMARY KEY AUTOINCREMENT, mod INT NOT NULL, name TEXT NOT NULL, image BLOB, FOREIGN KEY (mod) REFERENCES Mods(id))')
         db.execute('CREATE TABLE ModVersionItemMap (version INT NOT NULL, item INT NOT NULL, FOREIGN KEY (version) REFERENCES ModVersions(id), FOREIGN KEY (item) REFERENCES ModItems(id))')

@@ -1,0 +1,41 @@
+~~extends html/base.html~~
+<~~content~~>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Add Item for "~~data['game']['name']~~" "~~data['version']['version']~~"</h1>
+                <form method="post" enctype="multipart/form-data">
+                    <label>Name: <input type="text" maxlength="256" required name="name" id="name" class="form-control" list="item-list" onchange="check_input()"></label>
+                    <input type="hidden" name="id" id="id" value="">
+                    <datalist id="item-list">
+                        ~~''.join(f'''<option value="{item['id']}">{item["name"]}</option>''' for item in data['items'])~~
+                    </datalist>
+                    <label>Icon: <input type="file" required name="icon" id="icon" class="form-control-file" accept="image/png,image/jpeg,image/bmp" onchange="check_file()"></label>
+                    <input type="submit" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </div>
+</~~content~~>
+<~~scripts~~>
+    <script>
+        function check_file() {
+            const file = $('#icon')[0].files[0]
+            if (file.size > 4 << 20 || !(file.type == 'image/png' || file.type == 'image/jpeg')) {
+                alert('File is too big!')
+                $('#icon').val('')
+            }
+        }
+        function check_input() {
+            const option = $('#item-list').find('option[value="' + $('#item').val() + '"]')
+            if (option.val()) {
+                $('#id').val(option.val())
+                $('#item').val(option.text())
+                $('#icon').val('').attr('disabled')
+            } else {
+                $('#id').val('')
+                $('#icon').removeAttr('disabled')
+            }
+        }
+    </script>
+</~~scripts~~>

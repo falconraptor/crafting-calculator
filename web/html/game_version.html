@@ -10,7 +10,17 @@
         </div>
         <div class="row">
             <div class="col">
+                <h6>Items</h6>
                 <ul>
+                    <li><a href="/~~data['game']['name']~~/~~data['version']['version']~~/add_item/">Add Item</a></li>
+                    ~~''.join(f'''<li><a href="/{data['game']['name']}/{data['version']['version']}/items/{_['name']}"><img src="/static/gameitems/{_['id']}" style="max-height: 50px; max-width: 50px">{_['name']}</a></li>''' for _ in data['items'])~~
+                </ul>
+            </div>
+            <div class="col">
+                <h6>Mods</h6>
+                <ul>
+                    <li><a href="/~~data['game']['name']~~/~~data['version']['version']~~/add_mod/">Add Mod</a></li>
+                    ~~''.join(f'''<li><a href="/{data['game']['name']}/mods/{_['name']}/"><img src="/static/mods/{_['id']}" style="max-height: 50px; max-width: 50px">{_['name']} ({_['created']})</a></li>''' for _ in data['mods'])~~
                 </ul>
             </div>
         </div>

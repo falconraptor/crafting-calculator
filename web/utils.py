@@ -21,7 +21,7 @@ def require_version(f):
         game = kwargs.get('game', args[1] if len(args) > 1 else '')
         version_kwargs = kwargs.get('version', None)
         version_args = args[2] if len(args) > 2 else None
-        if not (version := DB.execute('SELECT version, released FROM GameVersions WHERE game=? and version=?', (game['id'], version_kwargs or version_args)).fetchone()):
+        if not (version := DB.execute('SELECT version, released, id FROM GameVersions WHERE game=? and version=?', (game['id'], version_kwargs or version_args)).fetchone()):
             return '', 307, {'Location': f'/{game["name"]}/add_version/'}
         if version_kwargs:
             kwargs['version'] = version
@@ -32,7 +32,7 @@ def require_version(f):
 
 
 def require_mod(f):
-    @require_game
+    @require_version
     def wrapped(*args, **kwargs):
         game = kwargs.get('game', args[1] if len(args) > 1 else '')
         mod_kwargs = kwargs.get('mod', None)
