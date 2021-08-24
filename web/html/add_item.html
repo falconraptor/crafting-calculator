@@ -27,11 +27,11 @@
             }
         }
         function check_input() {
-            const option = $('#item-list').find('option[value="' + $('#item').val() + '"]')
+            const option = $('#item-list').find('option[value="' + $('#name').val() + '"]')
             if (option.val()) {
                 $('#id').val(option.val())
-                $('#item').val(option.text())
-                $('#icon').val('').attr('disabled')
+                $('#name').val(option.text())
+                $('#icon').val('').attr('disabled', '')
             } else {
                 $('#id').val('')
                 $('#icon').removeAttr('disabled')
