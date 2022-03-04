@@ -1,0 +1,50 @@
+[
+  {
+    "inputs": {"Iron Ore": 30},
+    "outputs": {"Iron Ingot": 30}
+  },
+  {
+    "inputs": {"Iron Ingot": 30},
+    "outputs": {"Iron Plate": 20}
+  },
+  {
+    "inputs": {"Iron Ingot": 15},
+    "outputs": {"Iron Rod": 15}
+  },
+  {
+    "inputs": {
+      "Screw": 60,
+      "Iron Plate": 30
+    },
+    "outputs": {"Reinforced Plate": 5}
+  },
+  {
+    "inputs": {
+      "Screw": 250,
+      "Iron Plate": 90
+    },
+    "outputs": {"Reinforced Plate": 15}
+  },
+  {
+    "inputs": {
+      "Iron Ore": 20,
+      "Copper Ore": 20
+    },
+    "outputs": {"Iron Ingot": 50}
+  },
+  {
+    "inputs": {
+      "Iron Ore": 35,
+      "Water": 20
+    },
+    "outputs": {"Iron Ingot": 65}
+  },
+  {
+    "inputs": {"Iron Rod": 10},
+    "outputs": {"Screw": 40}
+  },
+  {
+    "inputs": {"Iron Ingot": 12.5},
+    "outputs": {"Screw": 50}
+  }
+]
